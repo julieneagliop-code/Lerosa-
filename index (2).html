@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gente Lerosa — Onde o trabalho tem nome</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400&family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F4EDE4;
+    --cream-soft: #EFE5D6;
+    --cream-deep: #E8DBC5;
+    --navy: #1E2267;
+    --navy-deep: #0F1440;
+    --navy-mid: #2D3280;
+    --sky: #7A9CC6;
+    --sky-soft: #A8BDD9;
+    --gold: #B8935A;
+    --gold-deep: #8F6F3F;
+    --gold-light: #D4B080;
+    --ink: #0A0D2A;
+    --ink-soft: #1F234A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter Tight', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-weight: 400;
+    line-height: 1.5;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .serif { font-family: 'Fraunces', serif; font-variation-settings: "opsz" 144; }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.1 0 0 0 0 0.15 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.35;
+    mix-blend-mode: multiply;
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy-deep);
+    color: var(--cream);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3rem 5vw;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 15% 25%, rgba(184, 147, 90, 0.2) 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 75%, rgba(122, 156, 198, 0.22) 0%, transparent 55%);
+    pointer-events: none;
+  }
+
+  .hero-logo-bg {
+    position: absolute;
+    right: -8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42rem;
+    height: 42rem;
+    opacity: 0.06;
+    pointer-events: none;
+    background-image: url("data:image/jpeg;base64,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");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: brightness(3) saturate(0);
+  }
+
+  .hero-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--sky-soft);
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-nav .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  .hero-nav .brand img {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 0 2px rgba(212, 176, 128, 0.3);
+  }
+
+  .hero-nav .brand-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0.02em;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--cream);
+  }
+
+  .hero-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 4rem 0;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 2.5rem;
+    animation: fadeUp 1s 0.2s both ease-out;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 3rem;
+    height: 1px;
+    background: var(--gold-light);
+  }
+
+  .hero-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(4rem, 13vw, 11rem);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+    font-variation-settings: "opsz" 144;
+    animation: fadeUp 1.2s 0.4s both ease-out;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--sky-soft);
+    font-weight: 400;
+  }
+
+  .hero-subtitle {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(1.25rem, 2.3vw, 1.85rem);
+    color: rgba(244, 237, 228, 0.78);
+    max-width: 45rem;
+    line-height: 1.4;
+    animation: fadeUp 1.2s 0.7s both ease-out;
+  }
+
+  .hero-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 0.8rem;
+    color: var(--sky-soft);
+    position: relative;
+    z-index: 2;
+    letter-spacing: 0.1em;
+    animation: fadeUp 1s 1s both ease-out;
+  }
+
+  .hero-footer .scroll-hint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 0.65rem;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 3rem;
+    background: linear-gradient(to bottom, transparent, var(--gold-light));
+    animation: scrollPulse 2s infinite ease-in-out;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { transform: scaleY(0.5); opacity: 0.3; }
+    50% { transform: scaleY(1); opacity: 1; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(3rem); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ============ SEÇÕES ============ */
+  section {
+    padding: 10rem 5vw;
+    position: relative;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .eyebrow::before {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: var(--gold-deep);
+  }
+
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 3rem;
+    color: var(--navy-deep);
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--gold-deep);
+  }
+
+  .lead {
+    font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 45rem;
+    font-weight: 400;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(3rem);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ============ ABERTURA ============ */
+  .abertura {
+    background: var(--cream);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .abertura-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .abertura-text h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--navy-deep);
+    margin-bottom: 2rem;
+  }
+
+  .abertura-text h2 em {
+    font-style: italic;
+    color: var(--gold-deep);
+  }
+
+  .abertura-quote {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    line-height: 1.3;
+    color: var(--navy);
+    position: relative;
+    padding: 3rem 2rem;
+    border-left: 3px solid var(--gold);
+  }
+
+  .abertura-quote::before {
+    content: '"';
+    position: absolute;
+    top: -1rem;
+    left: 1rem;
+    font-family: 'Fraunces', serif;
+    font-size: 8rem;
+    line-height: 1;
+    color: var(--gold-light);
+    opacity: 0.4;
+  }
+
+  /* ============ TRANSFORM ============ */
+  .transform {
+    background: var(--navy-deep);
+    color: var(--cream);
+  }
+
+  .transform .section-title { color: var(--cream); }
+  .transform .section-title em { color: var(--gold-light); }
+  .transform .lead { color: rgba(244, 237, 228, 0.8); }
+
+  .transform-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 6rem;
+  }
+
+  .transform-col h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+    margin-bottom: 1.5rem;
+    color: var(--gold-light);
+  }
+
+  .transform-col .label {
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .transform-list {
+    list-style: none;
+    margin-top: 2rem;
+  }
+
+  .transform-list li {
+    padding: 1.25rem 0;
+    border-top: 1px solid rgba(122, 156, 198, 0.2);
+    font-size: 1.05rem;
+    color: rgba(244, 237, 228, 0.85);
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+  }
+
+  .transform-list li:last-child {
+    border-bottom: 1px solid rgba(122, 156, 198, 0.2);
+  }
+
+  .transform-list .num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--gold);
+    font-size: 1rem;
+    min-width: 2rem;
+  }
+
+  /* ============ FILOSOFIA (substitui número 62) ============ */
+  .filosofia {
+    background: var(--cream-deep);
+    text-align: center;
+    padding: 14rem 5vw;
+    position: relative;
+  }
+
+  .filosofia::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(30, 34, 103, 0.03), transparent 60%);
+    pointer-events: none;
+  }
+
+  .filosofia-content {
+    max-width: 60rem;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .filosofia-frase {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(2rem, 5vw, 4.25rem);
+    line-height: 1.2;
+    color: var(--navy-deep);
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 144;
+  }
+
+  .filosofia-frase em {
+    color: var(--gold-deep);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .filosofia-frase strong {
+    font-weight: 400;
+    font-style: normal;
+    color: var(--navy);
+  }
+
+  /* ============ PROMESSA ============ */
+  .promessa {
+    background: var(--cream);
+  }
+
+  .promessa-intro {
+    max-width: 50rem;
+    margin-bottom: 6rem;
+  }
+
+  .promessa-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 5rem;
+  }
+
+  .promessa-item {
+    border-top: 1px solid var(--cream-deep);
+    padding-top: 2rem;
+    position: relative;
+  }
+
+  .promessa-item::before {
+    content: attr(data-num);
+    position: absolute;
+    top: -0.3rem;
+    right: 0;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--gold-deep);
+    opacity: 0.7;
+  }
+
+  .promessa-item h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    line-height: 1.1;
+    color: var(--navy-deep);
+    margin-bottom: 1rem;
+  }
+
+  .promessa-item h4 em {
+    font-style: italic;
+    color: var(--gold-deep);
+    font-weight: 300;
+  }
+
+  .promessa-item p {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  /* ============ PILARES ============ */
+  .pilares {
+    background: var(--cream-soft);
+    padding: 10rem 0;
+  }
+
+  .pilares .container { padding: 0 5vw; }
+
+  .pilares-header {
+    max-width: 50rem;
+    margin-bottom: 6rem;
+  }
+
+  .pilar-bloco {
+    display: grid;
+    grid-template-columns: 0.4fr 1fr;
+    gap: 6rem;
+    padding: 6rem 0;
+    border-top: 1px solid rgba(30, 34, 103, 0.12);
+    position: relative;
+  }
+
+  .pilar-bloco:last-child {
+    border-bottom: 1px solid rgba(30, 34, 103, 0.12);
+  }
+
+  .pilar-numero {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(5rem, 10vw, 8rem);
+    line-height: 0.85;
+    color: var(--gold-deep);
+    font-variation-settings: "opsz" 144;
+  }
+
+  .pilar-numero span {
+    display: block;
+    font-family: 'Inter Tight', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-top: 1rem;
+  }
+
+  .pilar-conteudo h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--navy-deep);
+    margin-bottom: 1rem;
+  }
+
+  .pilar-pergunta {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+    color: var(--navy);
+    margin-bottom: 2.5rem;
+    line-height: 1.4;
+  }
+
+  .pilar-desc {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 42rem;
+  }
+
+  .pilar-lista {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem 2rem;
+  }
+
+  .pilar-lista li {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .pilar-lista li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65rem;
+    width: 0.75rem;
+    height: 1px;
+    background: var(--gold-deep);
+  }
+
+  /* ============ ATITUDES ============ */
+  .atitudes {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 14rem 5vw;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .atitudes::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 10% 20%, rgba(212, 176, 128, 0.12), transparent 45%),
+      radial-gradient(circle at 90% 80%, rgba(122, 156, 198, 0.15), transparent 45%);
+    pointer-events: none;
+  }
+
+  .atitudes .container { position: relative; }
+
+  .atitudes-header {
+    margin-bottom: 8rem;
+    max-width: 50rem;
+  }
+
+  .atitudes .section-title { color: var(--cream); }
+  .atitudes .section-title em { color: var(--gold-light); }
+
+  .atitudes-lead {
+    font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+    color: rgba(244, 237, 228, 0.75);
+    max-width: 45rem;
+    line-height: 1.6;
+  }
+
+  .atitudes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+  }
+
+  .atitude {
+    position: relative;
+    padding-top: 3rem;
+  }
+
+  .atitude-linha {
+    width: 3rem;
+    height: 1px;
+    background: var(--gold);
+    margin-bottom: 2rem;
+  }
+
+  .atitude h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1;
+    color: var(--gold-light);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .atitude .essencia {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.25rem;
+    color: var(--cream);
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+
+  .atitude p {
+    color: rgba(244, 237, 228, 0.7);
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  /* ============ QUOTE SECTION ============ */
+  .quote-section {
+    background: var(--cream);
+    padding: 14rem 5vw;
+    text-align: center;
+  }
+
+  .quote-big {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(2rem, 5vw, 4.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--navy-deep);
+    max-width: 60rem;
+    margin: 0 auto;
+    position: relative;
+    font-variation-settings: "opsz" 144;
+  }
+
+  .quote-big em {
+    color: var(--gold-deep);
+    font-weight: 400;
+  }
+
+  .quote-sign {
+    display: block;
+    font-family: 'Inter Tight', sans-serif;
+    font-style: normal;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-top: 4rem;
+  }
+
+  /* ============ FUTURO ============ */
+  .futuro {
+    background: var(--cream-soft);
+    padding: 10rem 5vw;
+  }
+
+  .futuro-header {
+    max-width: 50rem;
+    margin-bottom: 6rem;
+  }
+
+  .ondas {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .onda {
+    background: var(--cream);
+    padding: 4rem 3.5rem;
+    border-left: 3px solid var(--gold-deep);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.6s ease;
+  }
+
+  .onda:hover {
+    transform: translateX(0.5rem);
+    box-shadow: -2rem 2rem 4rem rgba(30, 34, 103, 0.1);
+  }
+
+  .onda-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 2rem;
+    align-items: baseline;
+    margin-bottom: 2rem;
+  }
+
+  .onda-label {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--gold-deep);
+    letter-spacing: 0.05em;
+  }
+
+  .onda-titulo {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    line-height: 1;
+    color: var(--navy-deep);
+    letter-spacing: -0.02em;
+  }
+
+  .onda-periodo {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--navy);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .onda-obj {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.3rem;
+    color: var(--navy);
+    margin-bottom: 2rem;
+    max-width: 45rem;
+  }
+
+  .onda-acoes {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem 2.5rem;
+  }
+
+  .onda-acoes li {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .onda-acoes li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 0.5rem;
+    height: 1px;
+    background: var(--gold-deep);
+  }
+
+  /* ============ MANIFESTO ============ */
+  .manifesto {
+    background: var(--navy-deep);
+    color: var(--cream);
+    padding: 14rem 5vw;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .manifesto::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(212, 176, 128, 0.12), transparent 60%),
+      radial-gradient(ellipse at 50% 100%, rgba(122, 156, 198, 0.18), transparent 60%);
+    pointer-events: none;
+  }
+
+  .manifesto .container {
+    position: relative;
+    text-align: center;
+  }
+
+  .manifesto-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 3rem;
+  }
+
+  .manifesto-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--cream);
+    margin-bottom: 6rem;
+  }
+
+  .manifesto-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .manifesto-frases {
+    display: grid;
+    gap: 2.5rem;
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+
+  .manifesto-frase {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+    line-height: 1.5;
+    color: rgba(244, 237, 228, 0.9);
+  }
+
+  .manifesto-frase em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  /* ============ FOOTER ============ */
+  .footer {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 6rem 5vw 3rem;
+  }
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid rgba(184, 147, 90, 0.15);
+  }
+
+  .footer h5 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 2rem;
+    color: var(--gold-light);
+    margin-bottom: 1rem;
+  }
+
+  .footer p {
+    color: rgba(244, 237, 228, 0.65);
+    line-height: 1.6;
+    max-width: 30rem;
+  }
+
+  .footer-logos {
+    max-width: 1200px;
+    margin: 3rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .footer-logos img {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    opacity: 0.85;
+    transition: opacity 0.4s;
+  }
+
+  .footer-logos img:hover { opacity: 1; }
+
+  .footer-logos .separator {
+    width: 1px;
+    height: 2rem;
+    background: rgba(184, 147, 90, 0.3);
+  }
+
+  .footer-logos .marca {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--gold-light);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-assinatura {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(244, 237, 228, 0.4);
+  }
+
+  .footer-assinatura .right { text-align: right; }
+
+  /* ============ RESPONSIVO ============ */
+  @media (max-width: 900px) {
+    .abertura-grid,
+    .transform-grid,
+    .promessa-grid,
+    .atitudes-grid,
+    .pilar-bloco,
+    .onda-acoes,
+    .pilar-lista,
+    .footer-content {
+      grid-template-columns: 1fr !important;
+      gap: 2.5rem !important;
+    }
+
+    .onda-header {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+
+    .onda-periodo { text-align: left; }
+
+    section { padding: 6rem 5vw; }
+    .atitudes, .quote-section, .manifesto, .filosofia { padding: 8rem 5vw; }
+
+    .pilar-numero { font-size: 5rem; }
+
+    .hero-logo-bg { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-logo-bg"></div>
+
+  <nav class="hero-nav">
+    <span class="brand">
+      <img src="data:image/jpeg;base64,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" alt="Lerosa">
+      <span class="brand-name">Agropecuária Lerosa</span>
+    </span>
+    <span>Abril · 2026</span>
+  </nav>
+
+  <div class="hero-center">
+    <div class="hero-eyebrow">Agropecuária Lerosa · Desde 1990</div>
+    <h1 class="hero-title">Gente <em>Lerosa.</em></h1>
+    <p class="hero-subtitle">O que acontece quando uma empresa decide que o trabalho precisa ter nome, rosto e história — e se compromete a viver isso todos os dias.</p>
+  </div>
+
+  <div class="hero-footer">
+    <div>Documento destinado à Diretoria e Família Lerosa</div>
+    <div class="scroll-hint">
+      <span>Role para começar</span>
+      <div class="scroll-line"></div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ ABERTURA ============ -->
+<section class="abertura">
+  <div class="container">
+    <div class="abertura-grid">
+      <div class="abertura-text reveal">
+        <div class="eyebrow">O ponto de partida</div>
+        <h2>Uma empresa de <em>130+ pessoas.</em><br>E uma decisão.</h2>
+        <p class="lead">Desde 1990, a Agropecuária Lerosa cresceu, se consolidou e ampliou significativamente sua operação. Construiu patrimônio, equipe, história. E mais recentemente, deu mais um passo: decidiu investir em uma estrutura de Gente e Gestão à altura do que se tornou — organograma, cargos, processos, avaliação, governança.</p>
+        <p class="lead" style="margin-top: 1.5rem;">A fundação desta nova fase está pronta.</p>
+        <p class="lead" style="margin-top: 1.5rem;">Agora é hora da pergunta mais importante: <strong style="color: var(--navy-deep); font-weight: 500;">para que tudo isso?</strong></p>
+      </div>
+      <div class="reveal">
+        <div class="abertura-quote">
+          A Lerosa não tem funcionários.<br>
+          Tem gente.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRANSFORMAÇÃO ============ -->
+<section class="transform">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow" style="color: var(--gold-light);">A travessia</div>
+      <h2 class="section-title">De estrutura<br>para <em>alma.</em></h2>
+      <p class="lead" style="margin-top: 2rem;">A Lerosa construiu a fundação desta nova fase. O que vem agora é diferente: é a camada que transforma estrutura em identidade, processo em cultura, cargo em pertencimento.</p>
+    </div>
+
+    <div class="transform-grid reveal">
+      <div class="transform-col">
+        <span class="label">Atrás de nós</span>
+        <h3>Fase 1 — A Fundação</h3>
+        <ul class="transform-list">
+          <li><span class="num">01</span> Organograma, cargos e senioridades</li>
+          <li><span class="num">02</span> Estrutura salarial com política clara</li>
+          <li><span class="num">03</span> Avaliação de desempenho desenhada</li>
+          <li><span class="num">04</span> Programa de liderança em curso</li>
+          <li><span class="num">05</span> Pesquisa de clima e diagnóstico</li>
+          <li><span class="num">06</span> POPs, rituais e governança</li>
+          <li><span class="num">07</span> Mapeamento de lideranças</li>
+          <li><span class="num">08</span> Base técnica e documental consolidada</li>
+        </ul>
+      </div>
+      <div class="transform-col">
+        <span class="label">À nossa frente</span>
+        <h3>Fase 2 — A Alma</h3>
+        <ul class="transform-list">
+          <li><span class="num">01</span> Consolidação dos subsistemas operando</li>
+          <li><span class="num">02</span> Cultura que se vive, não só se escreve</li>
+          <li><span class="num">03</span> Comunicação interna como presença</li>
+          <li><span class="num">04</span> Liderança autônoma e referência</li>
+          <li><span class="num">05</span> Onboarding que acolhe de verdade</li>
+          <li><span class="num">06</span> Reconhecimento como rotina</li>
+          <li><span class="num">07</span> Reputação externa como empregadora</li>
+          <li><span class="num">08</span> O nascimento do Gente Lerosa</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FILOSOFIA (substitui 62%) ============ -->
+<section class="filosofia">
+  <div class="filosofia-content reveal">
+    <p class="filosofia-frase">
+      A Fase 1 construiu <strong>o esqueleto.</strong><br>
+      A Fase 2 constrói <em>a pele, os olhos,<br>a voz.</em>
+    </p>
+    <p class="filosofia-frase" style="margin-top: 3rem; font-size: clamp(1.4rem, 2.8vw, 2rem); color: var(--navy);">
+      Agora a Lerosa não só funciona melhor.<br>
+      <em>Ela começa a se parecer consigo mesma.</em>
+    </p>
+  </div>
+</section>
+
+<!-- ============ PROMESSA ============ -->
+<section class="promessa">
+  <div class="container">
+    <div class="promessa-intro reveal">
+      <div class="eyebrow">A promessa da Lerosa</div>
+      <h2 class="section-title">Um <em>bom lugar</em><br>para trabalhar.</h2>
+      <p class="lead">Antes de decidir o que fazer, é preciso decidir o que se quer ser. A Lerosa se compromete a ser um lugar onde:</p>
+    </div>
+
+    <div class="promessa-grid">
+      <div class="promessa-item reveal" data-num="01">
+        <h4>Cada pessoa <em>tem nome.</em></h4>
+        <p>Não é matrícula, não é apenas função. É gente com história.</p>
+      </div>
+      <div class="promessa-item reveal" data-num="02">
+        <h4>O trabalho <em>é digno.</em></h4>
+        <p>Com condições adequadas, remuneração justa e respeito.</p>
+      </div>
+      <div class="promessa-item reveal" data-num="03">
+        <h4>Há <em>caminho.</em></h4>
+        <p>Quem quer crescer na Lerosa encontra como.</p>
+      </div>
+      <div class="promessa-item reveal" data-num="04">
+        <h4>A palavra <em>vale.</em></h4>
+        <p>O que é combinado é cumprido — dos dois lados.</p>
+      </div>
+      <div class="promessa-item reveal" data-num="05">
+        <h4>Há <em>cuidado.</em></h4>
+        <p>Saúde, segurança e vida fora do trabalho importam.</p>
+      </div>
+      <div class="promessa-item reveal" data-num="06">
+        <h4>A gente <em>se vê.</em></h4>
+        <p>O que acontece no campo chega na gestão, e vice-versa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PILARES ============ -->
+<section class="pilares">
+  <div class="container">
+    <div class="pilares-header reveal">
+      <div class="eyebrow">O programa</div>
+      <h2 class="section-title">Quatro <em>perguntas.</em><br>Quatro pilares.</h2>
+      <p class="lead">Tudo que o Gente Lerosa faz responde a uma de quatro perguntas. Juntas, elas desenham uma empresa completa como lugar de trabalho — de dentro para fora, do primeiro ao último dia, do colaborador atual ao talento que ainda vai chegar.</p>
+    </div>
+
+    <div class="pilar-bloco reveal">
+      <div class="pilar-numero">01<span>Pilar</span></div>
+      <div class="pilar-conteudo">
+        <h3>Quem Somos</h3>
+        <p class="pilar-pergunta">"O que a Lerosa representa como lugar de trabalho?"</p>
+        <p class="pilar-desc">A identidade. A história que a empresa conta sobre si mesma — para quem está dentro e para quem está fora. Valores, posicionamento, tom de voz, estética.</p>
+        <ul class="pilar-lista">
+          <li>Playbook Cultural validado</li>
+          <li>Linguagem visual consistente</li>
+          <li>Tom de voz da Lerosa</li>
+          <li>História da empresa documentada</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pilar-bloco reveal">
+      <div class="pilar-numero">02<span>Pilar</span></div>
+      <div class="pilar-conteudo">
+        <h3>Como Tratamos</h3>
+        <p class="pilar-pergunta">"Como é ser gente da Lerosa, do primeiro ao último dia?"</p>
+        <p class="pilar-desc">A experiência concreta. Todos os momentos de verdade: a entrevista, o primeiro dia, a promoção, a dificuldade, o reconhecimento, a saída. O que se sente ao viver cada um deles.</p>
+        <ul class="pilar-lista">
+          <li>Recrutamento que respeita</li>
+          <li>Onboarding 30-60-90</li>
+          <li>Reconhecimento frequente</li>
+          <li>Feedback estruturado</li>
+          <li>Desenvolvimento acessível</li>
+          <li>Desligamento digno</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pilar-bloco reveal">
+      <div class="pilar-numero">03<span>Pilar</span></div>
+      <div class="pilar-conteudo">
+        <h3>Como Comunicamos</h3>
+        <p class="pilar-pergunta">"Como a Lerosa fala com a sua gente — e como a sua gente fala com a Lerosa?"</p>
+        <p class="pilar-desc">O sistema de comunicação interna. Canais, ritmo, tom, quem fala o quê e quando. No agro, isso é presença física, mural vivo, grupo de WhatsApp ativo, líder que passa a mensagem.</p>
+        <ul class="pilar-lista">
+          <li>Canais oficiais definidos</li>
+          <li>Calendário anual de campanhas</li>
+          <li>Cadência do Ricardo com a empresa</li>
+          <li>Protocolo para notícias difíceis</li>
+          <li>Canal de escuta do campo</li>
+          <li>Linguagem simples, sempre</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pilar-bloco reveal">
+      <div class="pilar-numero">04<span>Pilar</span></div>
+      <div class="pilar-conteudo">
+        <h3>Como Somos Vistos</h3>
+        <p class="pilar-pergunta">"O que encontra quem ainda não trabalha na Lerosa mas quer trabalhar?"</p>
+        <p class="pilar-desc">A reputação externa. O que se fala na região sobre trabalhar aqui. Como a empresa se apresenta a candidatos, comunidade, escolas técnicas e sindicatos rurais. A pegada da Lerosa no ecossistema do agro.</p>
+        <ul class="pilar-lista">
+          <li>Presença em mídia social</li>
+          <li>Processo seletivo como porta</li>
+          <li>Relação com escolas técnicas</li>
+          <li>Página simples de carreiras</li>
+          <li>Colaborador como embaixador</li>
+          <li>Presença em eventos regionais</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ATITUDES ============ -->
+<section class="atitudes">
+  <div class="container">
+    <div class="atitudes-header reveal">
+      <div class="eyebrow" style="color: var(--gold-light);">As 3 atitudes</div>
+      <h2 class="section-title">O que <em>atravessa</em><br>todas as ações.</h2>
+      <p class="atitudes-lead">Os quatro pilares são o que fazemos. As três atitudes são como fazemos. Toda ação do Gente Lerosa — de um cartão de aniversário a um comunicado de mudança — carrega essas três marcas.</p>
+    </div>
+
+    <div class="atitudes-grid">
+      <div class="atitude reveal">
+        <div class="atitude-linha"></div>
+        <h4>Presença.</h4>
+        <p class="essencia">Estar junto, não só processar.</p>
+        <p>O RH passa nas frentes. O líder conhece o nome de cada pessoa. O Ricardo aparece. O mural é atualizado. A comunicação não fica presa no escritório.</p>
+      </div>
+      <div class="atitude reveal">
+        <div class="atitude-linha"></div>
+        <h4>Reconhecimento.</h4>
+        <p class="essencia">Nome, olhar, gesto.</p>
+        <p>As pessoas são chamadas pelo nome. Suas contribuições são vistas. Os gestos simples — um cartão escrito à mão, um elogio público — valem mais que brindes caros. Tempo de casa importa.</p>
+      </div>
+      <div class="atitude reveal">
+        <div class="atitude-linha"></div>
+        <h4>Verdade.</h4>
+        <p class="essencia">Linguagem simples, promessas cumpridas.</p>
+        <p>Sem jargão. Sem promessa que não se cumpre. Sem comunicado que parece manual jurídico. Se não é verdade, não se diz. Se é hora de dar uma notícia difícil, se dá com respeito.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CITAÇÃO ============ -->
+<section class="quote-section">
+  <div class="reveal">
+    <p class="quote-big">Programa de marca empregadora<br>sem presença, sem reconhecimento<br>e sem verdade <em>vira propaganda.</em><br>Propaganda o mercado<br><em>sente de longe.</em></p>
+    <span class="quote-sign">— Gente Lerosa</span>
+  </div>
+</section>
+
+<!-- ============ FUTURO ============ -->
+<section class="futuro">
+  <div class="container">
+    <div class="futuro-header reveal">
+      <div class="eyebrow">A construção</div>
+      <h2 class="section-title">Três <em>ondas.</em><br>Doze meses.</h2>
+      <p class="lead">O Gente Lerosa não nasce pronto. É construído em camadas, respeitando o tempo natural de cada pilar. Começa pelos gestos. Depois vem o nome. Por fim, projeta-se para o mundo.</p>
+    </div>
+
+    <div class="ondas">
+      <div class="onda reveal">
+        <div class="onda-header">
+          <span class="onda-label">Onda 01</span>
+          <h3 class="onda-titulo">Fundação.</h3>
+          <span class="onda-periodo">Mai · Jun · Jul · Ago · 2026</span>
+        </div>
+        <p class="onda-obj">Preparar o terreno sem anunciar o programa. Viver as atitudes primeiro. Nomear depois.</p>
+        <ul class="onda-acoes">
+          <li>Calendário mensal de campanhas rodando</li>
+          <li>Presença do RH nas frentes consolidada</li>
+          <li>Reconhecimento nominal nos rituais</li>
+          <li>História da Lerosa documentada</li>
+          <li>Canais de comunicação mapeados</li>
+          <li>Base pronta para o Playbook Cultural</li>
+        </ul>
+      </div>
+
+      <div class="onda reveal">
+        <div class="onda-header">
+          <span class="onda-label">Onda 02</span>
+          <h3 class="onda-titulo">Nome e identidade.</h3>
+          <span class="onda-periodo">Set · Out · Nov · Dez · 2026</span>
+        </div>
+        <p class="onda-obj">Nomear o programa, dar identidade visual e consagrá-lo na primeira Confraternização Oficial.</p>
+        <ul class="onda-acoes">
+          <li>Playbook Cultural lançado</li>
+          <li>Marca Gente Lerosa apresentada</li>
+          <li>Identidade visual aplicada</li>
+          <li>Selo em murais, cartões, WhatsApp</li>
+          <li>Campanhas mensais sob a marca</li>
+          <li>Primeira Confraternização Oficial</li>
+        </ul>
+      </div>
+
+      <div class="onda reveal">
+        <div class="onda-header">
+          <span class="onda-label">Onda 03</span>
+          <h3 class="onda-titulo">Projeção.</h3>
+          <span class="onda-periodo">Jan · Fev · Mar · Abr · 2027</span>
+        </div>
+        <p class="onda-obj">Projetar a marca empregadora para fora. Mostrar ao ecossistema do agro o que a Lerosa se tornou.</p>
+        <ul class="onda-acoes">
+          <li>Presença em mídia social estruturada</li>
+          <li>Relação com escolas técnicas</li>
+          <li>Processo seletivo redesenhado</li>
+          <li>Página simples de carreiras</li>
+          <li>Programa de indicação formalizado</li>
+          <li>Avaliação da reputação externa</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MANIFESTO ============ -->
+<section class="manifesto">
+  <div class="container">
+    <div class="reveal">
+      <div class="manifesto-eyebrow">Manifesto</div>
+      <h2 class="manifesto-title">A Lerosa que <em>queremos ser.</em></h2>
+
+      <div class="manifesto-frases">
+        <p class="manifesto-frase">Uma empresa onde <em>cada pessoa é vista.</em></p>
+        <p class="manifesto-frase">Onde <em>a palavra vale</em> e promessa se cumpre.</p>
+        <p class="manifesto-frase">Onde <em>há caminho</em> para quem quer crescer.</p>
+        <p class="manifesto-frase">Onde <em>o cuidado é rotina,</em> não evento.</p>
+        <p class="manifesto-frase">Onde <em>trabalhar é motivo</em> de orgulho — para quem está e para quem vem.</p>
+        <p class="manifesto-frase" style="margin-top: 3rem; font-size: clamp(1.5rem, 2.8vw, 2.25rem); color: var(--gold-light);">Uma empresa que <em>não tem funcionários.</em><br>Tem <em>gente.</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CITAÇÃO FINAL ============ -->
+<section class="quote-section" style="background: var(--cream-deep);">
+  <div class="reveal">
+    <p class="quote-big">Não se constrói<br>uma boa marca empregadora.<br><em>Se constrói um bom lugar<br>para trabalhar</em> —<br>e isso <em>vira</em> uma boa marca empregadora.</p>
+    <span class="quote-sign">Gente Lerosa · 2026–2027</span>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-content">
+    <div>
+      <h5>Próximos passos</h5>
+      <p>Validação da filosofia e dos pilares com a diretoria. Integração do programa ao plano de trabalho da próxima fase. Início silencioso da Onda 1 em maio de 2026.</p>
+    </div>
+    <div>
+      <h5>Apoio técnico</h5>
+      <p>Este documento foi elaborado pela <strong style="color: var(--cream); font-weight: 500;">Performance Gente &amp; Gestão</strong> como apoio ao planejamento da Lerosa para o próximo ciclo.<br><br>
+      Juliene Aglio Oliveira Parrão · Presidente Prudente · SP</p>
+    </div>
+  </div>
+
+  <div class="footer-logos">
+    <img src="data:image/jpeg;base64,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" alt="Lerosa">
+    <span class="separator"></span>
+    <span class="marca">Agropecuária Lerosa · Desde 1990</span>
+  </div>
+
+  <div class="footer-assinatura">
+    <div>Programa de Marca Empregadora</div>
+    <div class="right">Abril · 2026</div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -5% 0px' }
+  );
+
+  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+  document.querySelectorAll('.promessa-grid .reveal, .atitudes-grid .reveal, .ondas .reveal').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.12) + 's';
+  });
+</script>
+
+</body>
+</html>
